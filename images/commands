@@ -1,0 +1,9 @@
+# Build with docker
+docker build -t my-image .
+docker tag my-image aebarreiro/my-image
+docker push
+
+# Build with kubectl build
+read -s REG_SECRET
+kubectl create secret docker-registry mysecret --docker-server='https://index.docker.io/v1/' --docker-username=aebarreiro --docker-password=$REG_SECRET
+kubectl build --push --registry-secret mysecret -t aebarreiro/info_server -f images/Dockerfile images/

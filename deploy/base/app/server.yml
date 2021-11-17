@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: info-server
+  labels:
+    app: info-server
+
+spec:
+  selector:
+    matchLabels:
+      app: info-server
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: info-server
+    spec:
+      containers:
+      - name: info-server
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            name: nginx-conf
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf-kustom
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: info-server
+  labels:
+    app: info-server
+
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: info-server
+

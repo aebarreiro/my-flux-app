@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: gitops-ns-dev
+nameSuffix: -dev
+resources:
+- ../../base/app
+- namespace.yml
+replicas:
+- count: 1
+  name: info-server
+configMapGenerator:
+- name: nginx-conf-kustom
+  files:
+  - html/index.html
+  - html/main.css
