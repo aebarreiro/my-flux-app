@@ -8,6 +8,7 @@ labels:
 nameSuffix: -dev
 resources:
   - ../../base/new-app
+  - ingress.yml
 replicas:
   - count: 3
     name: web-server

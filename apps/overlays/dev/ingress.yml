@@ -1,0 +1,22 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-server
+spec:
+  rules:
+  - host: myserver.dev.me
+    http:
+      paths:
+      - backend:
+          service:
+            name: web-server-dev
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - myserver.dev.me
+    secretName: myserver-tls
+
