@@ -2,21 +2,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
   name: web-server
 spec:
   rules:
-  - host: myserver.dev.me
+  - host: aebarreiro-dev.lab5g.gradiant.org
     http:
       paths:
       - backend:
           service:
             name: web-server-dev
             port:
-              number: 80
+              name: http
         path: /
-        pathType: Prefix
+        pathType: ImplementationSpecific
   tls:
   - hosts:
-    - myserver.dev.me
+    - aebarreiro-dev.lab5g.gradiant.org
     secretName: myserver-tls
 
