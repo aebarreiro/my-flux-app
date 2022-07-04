@@ -3,5 +3,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 nameSuffix: -dev
 resources:
-  - ../../base/app
+  - ../../base/new-app
+replicas:
+  - count: 3
+    name: web-server
+configMapGenerator:
+- name: html-conf
+  files:
+  - html/index.html
+  - html/main.css
 
