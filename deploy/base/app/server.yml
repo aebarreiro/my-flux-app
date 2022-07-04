@@ -1,11 +1,10 @@
+---
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: info-server
   labels:
     app: info-server
-
 spec:
   selector:
     matchLabels:
@@ -36,7 +35,6 @@ metadata:
   name: info-server
   labels:
     app: info-server
-
 spec:
   type: LoadBalancer
   ports:
