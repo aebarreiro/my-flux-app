@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/* background-color: #cc0099; */
+	/* background-color: #987641; */
+	background-color: #deeaee;
+}
+
+div {
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #000;
+	padding: 20px;
+}
+
+p {
+	color: #ff5;
+	font-family: monospace;
+	font-size: 40px;
+}
