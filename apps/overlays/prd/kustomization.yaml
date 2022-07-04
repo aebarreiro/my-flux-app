@@ -5,7 +5,15 @@ labels:
   - pairs:
       app: my-app
     includeSelectors: true
-#nameSuffix: -prd
 resources:
-  - ../../base/app
+  - ../../base/new-app
+  - ingress.yml
+replicas:
+  - count: 3
+    name: web-server
+configMapGenerator:
+- name: nginx-data
+  files:
+  - html/index.html
+  - html/main.css
 
