@@ -1,7 +1,11 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-nameSuffix: -prd
+labels:
+  - pairs:
+      app: my-app
+    includeSelectors: true
+#nameSuffix: -prd
 resources:
   - ../../base/app
 
