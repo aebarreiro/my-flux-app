@@ -8,7 +8,7 @@ replicas:
   - count: 3
     name: web-server
 configMapGenerator:
-- name: html-conf
+- name: nginx-data
   files:
   - html/index.html
   - html/main.css
