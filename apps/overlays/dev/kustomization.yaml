@@ -11,7 +11,7 @@ resources:
   - ingress.yml
 replicas:
   - count: 3
-    name: web-server
+    name: php-server
 configMapGenerator:
   - name: web-data
     files:
