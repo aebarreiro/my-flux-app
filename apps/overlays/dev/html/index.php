@@ -8,8 +8,8 @@
 		<?php
 			$my_ns = getenv('MY_NAMESPACE') ;
 			$my_node = getenv('MY_NODE') ;
-			print "<p>Hello World from " , $my_ns , " </p>\n";
-			print "<p>I'm on " , $my_node , " </p>\n";
+			print "<p>Hello World from " . $my_ns . " </p>\n";
+			print "<p>I'm on " . $my_node . " </p>\n";
 		?>
 		</div>
 	</body>
