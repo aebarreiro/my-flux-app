@@ -2,6 +2,9 @@
 <html>
 	<head>
 <?php echo '<link rel="stylesheet" type="text/css" href="main.css">'."\n"; ?>
+<style>
+  <?php include "main.css" ?>
+</style>
 	</head>
 	<body>
 		<div>
