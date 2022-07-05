@@ -10,11 +10,11 @@ resources:
   - ../../base/new-app
   - ingress.yml
 replicas:
-  - count: 1
+  - count: 3
     name: web-server
 configMapGenerator:
-- name: nginx-data
-  files:
-  - html/index.html
-  - html/main.css
+  - name: nginx-data
+    files:
+    - html/index.php
+    - html/main.css
 
