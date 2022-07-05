@@ -6,8 +6,8 @@
 	<body>
 		<div>
 		<?php
-			echo "<p>Hello World from" . getenv('MY_NAMESPACE') . "</p>";
-			echo "<p>I'm on" . getenv('MY_NODE') . "</p>";
+			print "<p>Hello World from" . getenv('MY_NAMESPACE') . "</p>";
+			print "<p>I'm on" . getenv('MY_NODE') . "</p>";
 		?>
 		</div>
 	</body>
