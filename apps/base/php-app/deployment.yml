@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-server
+  labels:
+    app: php-server
+spec:
+  selector:
+    matchLabels:
+      app: php-server
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: php-server
+    spec:
+      containers:
+      - name: php
+        image: php:7-fpm
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: web-data
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: web-data
+        - mountPath: /etc/nginx/nginx.conf
+          name: nginx-conf
+          subPath: nginx.conf
+        env:
+        - name: MY_NODE
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: MY_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      restartPolicy: Always
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
+        - name: web-data
+          configMap:
+            name: web-data
+

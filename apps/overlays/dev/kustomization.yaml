@@ -7,13 +7,13 @@ labels:
     includeSelectors: true
 nameSuffix: -dev
 resources:
-  - ../../base/new-app
+  - ../../base/php-app
   - ingress.yml
 replicas:
   - count: 3
     name: web-server
 configMapGenerator:
-  - name: nginx-data
+  - name: web-data
     files:
     - html/index.php
     - html/main.css

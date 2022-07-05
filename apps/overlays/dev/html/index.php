@@ -5,10 +5,10 @@
 	</head>
 	<body>
 		<div>
-<?php
-echo "<p>Hello World from" . getenv('MY_NAMESPACE') . "</p>";
-echo "<p>I'm on" . getenv('MY_NODE') . "</p>";
-?>
+		<?php
+			echo "<p>Hello World from" . getenv('MY_NAMESPACE') . "</p>";
+			echo "<p>I'm on" . getenv('MY_NODE') . "</p>";
+		?>
 		</div>
 	</body>
 </html>
